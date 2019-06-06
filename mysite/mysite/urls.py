@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'example/', include('example.urls')),
     path(r'turkey/', include('turkey.urls')),
+    ###WHOO
 ]
