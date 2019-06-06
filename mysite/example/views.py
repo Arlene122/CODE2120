@@ -6,10 +6,10 @@ from .models import *
 
 # Create your views here.
 
-def example_get(request, var_a, var_b):
-	try:
+def example_get(request, var_a, var_b):#these variables must be the same name as in the function in the url file#
+	try:#Try - this prevents Django from breaking, and gives an object about the error and tells you about the error#
 		returnob = {
-		"data": "%s: %s" %(var_a, var_b),
+		"data": "bubblegum %s < pizza %s" %(var_a, var_b),
 		}
 		return JsonResponse(returnob)
 	except Exception as e:
