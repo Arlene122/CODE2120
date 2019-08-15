@@ -89,7 +89,7 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob = {"Country Location": 0, "Baby Name Boy": 3}
+	jsob = {"Country name": 0, "Current Weather": 3}
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
@@ -101,9 +101,8 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
 
-			startnumber = int(jsob["StartNumber"]) #int makes sure that even if someone gives us a string it is now an integer
-			length= int(jsob["Length"])
-			loop = range(length) #this is making an array of numbers
+			CounryName = int(jsob["CountryName"]) #int makes sure that even if someone gives us a string it is now an integer
+			Weather= int(jsob["Weather"])
 
 			numarray = []
 			fibno = startnumber #this is the current number
