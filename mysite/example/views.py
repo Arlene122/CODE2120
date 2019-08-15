@@ -66,13 +66,54 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 			numarray = []
 			fibno = startnumber #this is the current number
-			addno = 1
+			addno = 2
 			for l in loop:
 				numarray.append(fibno)
 				fibno = fibno + addno
 				addno = fibno - addno
 
 			return JsonResponse({"fib":numarray})
+		except Exception as e:
+			exc_type, exc_obj, exc_tb = sys.exc_info()
+			other = sys.exc_info()[0].__name__
+			fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+			errorType = str(exc_type)
+			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
+	else:
+		return JsonResponse(jsob) #this is returning HTML
+
+
+
+
+
+
+@csrf_exempt #this is a decorator -> These are put before a function
+def practice(request): #example_post -> This allows you to send data with the request
+	jsob = {"Country Location": 0, "Baby Name Boy": 3}
+	log = [] #helps to print errors if there are problems
+	if request.method == "POST":
+		try:
+			data = request.POST["data"]
+			received = json.loads(data)
+			jsob.update(received) #changes from this line are from Lecture 2 recording
+
+			#######################################
+			#EVERYTHING ABOVE THIS LINE IS REQURED#
+			#######################################
+
+			startnumber = int(jsob["StartNumber"]) #int makes sure that even if someone gives us a string it is now an integer
+			length= int(jsob["Length"])
+			loop = range(length) #this is making an array of numbers
+
+			numarray = []
+			fibno = startnumber #this is the current number
+			addno = 1
+			for l in loop:
+				numarray.append(fibno)
+				fibno = fibno + addno
+				addno = fibno - addno
+
+			return JsonResponse({"practice":numarray})
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
