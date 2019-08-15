@@ -101,19 +101,17 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
 
-			
+			index = 0
+			for i in jsob["demo"]:
+				index += 1
 
+			return JsonResponse({"count":index})
+		except Exception as e:
+			exc_type, exc_obj, exc_tb = sys.exc_info()
+			other = sys.exc_info()[0].__name__
+			fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+			errorType = str(exc_type)
+			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
+	else:
+		return HttpResponse("ONLY POST REQUESTS") #this is returning HTML
 
-			base_url = "http://localhost:8000/example/practice/"
-			 
-			latitude = input("Enter Latitude : ")
-			longitude = input("Enter Longitude : ")
-			 
-			Final_url = base_url + "appid=" + API_key + "&lat=" + latitude + "&lon=" + longitude
-			weather_data = requests.get(Final_url).json()
-			 
-
-
-			return JsonResponse("Weather Data By Geograhic Coordinates :")
-else:
-		return JsonResponse(jsob)
