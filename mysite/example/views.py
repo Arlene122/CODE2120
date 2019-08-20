@@ -94,24 +94,23 @@ def practice(request): #example_post -> This allows you to send data with the re
 	if request.method == "POST":
 		try:
 			data = request.POST["data"]
-			received = json.loads(data)
-			jsob.update(received) #changes from this line are from Lecture 2 recording
+			jsob = json.loads(data) #changes from this line are from Lecture 2 recording
 
 			#######################################
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
-			first = ("Super", "Retarded", "Great", "Sexy", "Vegan", "Brave", "Shy", "Cool", "Poor", "Rich", "Fast")
+			first = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
 			second = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
 
 			
 			for i in jsob["demo"]:
 				
-				firrst = random.choice(first)
-				seccond = random.choice(second)
+				boyname = random.choice(first)
+				girlname = random.choice(second)
 				name = (firrst + " " + seccond 
 				)
 			
-			return JsonResponse({"Child's Name is...":name})
+			return JsonResponse({"Boy"+ boyname + "Girl" + Girlname})
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
@@ -119,5 +118,5 @@ def practice(request): #example_post -> This allows you to send data with the re
 			errorType = str(exc_type)
 			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
 	else:
-		return JsonResponse(jsob) #this is returning HTML
+		return JsonResponse({"Boy"+ boyname + "Girl" + Girlname}) #this is returning HTML
 
