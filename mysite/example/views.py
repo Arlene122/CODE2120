@@ -107,7 +107,7 @@ def practice(request): #example_post -> This allows you to send data with the re
 			boyname1 = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
 			girlname1 = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner", "Killer", "Woman", "Programmer", "Spy", "Stalker", "Spooderman", "Carrot", "Goat", "Quickscoper", "Quickscoper")
 			
-			boynames = jsob[random.choice(girlname1)]
+			boynames = jsob["boyname"]
 			girlnames = jsob[random.choice(boyname1)]
 			name = (boynames + " " + girlnames)
 			jsob = (name)
