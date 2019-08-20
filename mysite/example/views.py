@@ -103,6 +103,8 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#######################################
 			first = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
 			second = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
+			length= int(jsob["Length"])
+			loop = range(length)
 
 			boyname = []
 			girlname = []
