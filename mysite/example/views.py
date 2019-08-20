@@ -108,7 +108,7 @@ def practice(request): #example_post -> This allows you to send data with the re
 			
 			boynames = random.choice(girlname1)
 			girlnames = random.choice(boyname1)
-			name = (boynames + " " + girlnames )
+			name = (boynames + " " + girlnames)
 
 
 			return JsonResponse("Your name is: " + name)
@@ -119,6 +119,6 @@ def practice(request): #example_post -> This allows you to send data with the re
 			errorType = str(exc_type)
 			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
 	else:
-		return JsonResponse(jsob)
+		return JsonResponse("Your name is: " + name)
 
 
