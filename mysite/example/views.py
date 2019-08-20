@@ -90,7 +90,7 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob = {"Childs Name": name}
+	jsob = {"Childs Name": 0}
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
@@ -101,15 +101,18 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#######################################
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
+			first = ("Super", "Retarded", "Great", "Sexy", "Vegan", "Brave", "Shy", "Cool", "Poor", "Rich", "Fast")
+			second = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
 
-			first = ("Super", "Retarded", "Great", "Sexy", "Vegan", "Brave", "Shy", "Cool", "Poor", "Rich", "Fast", "Gummy", "Yummy", "Masked", "Unusual", "American", "Bisexual", "MLG", "Mlg", "lil", "Lil")
-			second = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner", "Killer", "Woman", "Programmer", "Spy", "Stalker", "Spooderman", "Carrot", "Goat", "Quickscoper", "Quickscoper")
-			firrst = random.choice(first)
-			seccond = random.choice(second)
-			name = (firrst + " " + seccond 
-			)
+			name = []
+			for i in jsob["demo"]
+				
+				firrst = random.choice(first)
+				seccond = random.choice(second)
+				name = (firrst + " " + seccond 
+				)
 			
-			return ({"pracrtice":name})
+			return ({"Child's":name})
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
