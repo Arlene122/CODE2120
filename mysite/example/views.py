@@ -90,13 +90,14 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob = {"names" : "hello"}
+	jsob = {"boyname" : "girlname"}
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
 			data = request.POST["data"]
+			print(data)
 			received = json.loads(data)
-			jsob.update(received) #changes from this line are from Lecture 2 recording
+			jsob = json.loads(data) #changes from this line are from Lecture 2 recording
 
 			#######################################
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
@@ -106,8 +107,8 @@ def practice(request): #example_post -> This allows you to send data with the re
 			boyname1 = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
 			girlname1 = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner", "Killer", "Woman", "Programmer", "Spy", "Stalker", "Spooderman", "Carrot", "Goat", "Quickscoper", "Quickscoper")
 			
-			boynames = random.choice(girlname1)
-			girlnames = random.choice(boyname1)
+			boynames = jsob[random.choice(girlname1)]
+			girlnames = jsob[random.choice(boyname1)]
 			name = (boynames + " " + girlnames)
 			jsob = (name)
 
