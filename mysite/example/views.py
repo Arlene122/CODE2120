@@ -102,17 +102,14 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
 
-		NAMES = ['Adam', 'Betty', 'Charlie', 'Debbie', 'Elaine', 'Frank' 'George','Harry', 'Igor', 'Jack', 'Kevin', 'Larry', 'Moe', 'Nancy', 'Ophelia', 'Phil', 'Quentin']
-		FRUIT = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape']
-
-		sCounter = 0
-		fCounter = 5
-
-
-		while sCounter <= fCounter:
-		    sCounter += 1 
-
-			return JsonResponse ().format(random.choice(NAMES))
+			first = ("Super", "Retarded", "Great", "Sexy", "Vegan", "Brave", "Shy", "Cool", "Poor", "Rich", "Fast", "Gummy", "Yummy", "Masked", "Unusual", "American", "Bisexual", "MLG", "Mlg", "lil", "Lil")
+			second = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner", "Killer", "Woman", "Programmer", "Spy", "Stalker", "Spooderman", "Carrot", "Goat", "Quickscoper", "Quickscoper")
+			firrst = random.choice(first)
+			seccond = random.choice(second)
+			name = (firrst + " " + seccond 
+			)
+			
+			return JsonResponse ("Your name is: " + name)
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
