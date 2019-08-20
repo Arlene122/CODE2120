@@ -90,7 +90,7 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob = {"boynames" : "girlnames"}
+	jsob = {"boyNames" : "girlNames"}
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
@@ -104,14 +104,15 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#######################################
 
 			import random
-			boyname1 = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
-			girlname1 = ("Emma","Olivia","Ava","Isabella","Sophia","Charlotte","Mia","Amelia","Harper","Evelyn","Abigail","Emily","Elizabeth")
+			boynameList = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
+			girlNameList = ("Emma","Olivia","Ava","Isabella","Sophia","Charlotte","Mia","Amelia","Harper","Evelyn","Abigail","Emily","Elizabeth")
 			
-			boynames = jsob[random.choice(girlname1)]
-			girlnames = random.choice(boyname1)
-			jsob = (name)
+			boyNames = jsob["boyNames"]
+			boyNames = random.choice(boynameList)
+			girlnames = random.choice(girlnameList)
 
-			return JsonResponse("Boy's Name: " + boynames , "Girl's Name" + girlnames)
+
+			return JsonResponse("Boy's Name: " + boynames + " , " + "Girl's Name: " + girlnames)
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
