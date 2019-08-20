@@ -90,13 +90,11 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob = {"Childs Name": 0}
-	log = [] #helps to print errors if there are problems
+	log = []
 	if request.method == "POST":
 		try:
 			data = request.POST["data"]
-			received = json.loads(data)
-			jsob.update(received) #changes from this line are from Lecture 2 recording
+			jsob = json.loads(data) #changes from this line are from Lecture 2 recording
 
 			#######################################
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
