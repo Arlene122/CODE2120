@@ -101,11 +101,19 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
 
-			index = 0
-			for i in jsob["demo"]:
-				index += 1
+		import random
+		NAMES = ['Adam', 'Betty', 'Charlie', 'Debbie', 'Elaine', 'Frank' 'George','Harry', 'Igor', 'Jack', 'Kevin', 'Larry', 'Moe', 'Nancy', 'Ophelia', 'Phil', 'Quentin']
+		VERBS = ['had', 'found', 'got', 'made', 'knew', 'took', 'saw', 'wanted', 'used', 'found', 'tried']
+		FRUIT = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape']
 
-			return JsonResponse({"count":index})
+		sCounter = 0
+		fCounter = 5
+
+
+		while sCounter <= fCounter:
+		    sCounter += 1 
+
+			return JsonResponse ("{0} {1} the {2}").format(random.choice(NAMES),random.choice(VERBS),random.choice(FRUIT))
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
