@@ -90,7 +90,7 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob = {"names" , "hello"}
+	jsob = {"names" : "hello"}
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
