@@ -94,7 +94,8 @@ def practice(request): #example_post -> This allows you to send data with the re
 	if request.method == "POST":
 		try:
 			data = request.POST["data"]
-			jsob = json.loads(data) #changes from this line are from Lecture 2 recording
+			received = json.loads(data)
+			jsob.update(received) #changes from this line are from Lecture 2 recording
 
 			#######################################
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
