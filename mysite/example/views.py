@@ -90,17 +90,12 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob = {"boy_name": boyname, "Girl_name": girlname}
-	log = [] #helps to print errors if there are problems
+	log = []
 	if request.method == "POST":
 		try:
 			data = request.POST["data"]
-			received = json.loads(data)
-			jsob.update(received) #changes from this line are from Lecture 2 recording
+			jsob = json.loads(data) #changes from this line are from Lecture 2 recording
 
-			#######################################
-			#EVERYTHING ABOVE THIS LINE IS REQURED#
-			#######################################
 			boyname = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
 			girlname = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
 
@@ -110,8 +105,8 @@ def practice(request): #example_post -> This allows you to send data with the re
 			girlname.random.choice(second)
 			name = (firrst + " " + seccond 
 			)
-			
-			return JsonResponse({"fib":boyname})
+
+			return JsonResponse({"count":index})
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
@@ -119,5 +114,6 @@ def practice(request): #example_post -> This allows you to send data with the re
 			errorType = str(exc_type)
 			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
 	else:
-		return JsonResponse(jsob) #this is returning HTML
+		return HttpResponse("ONLY POST REQUESTS")
+
 
