@@ -108,8 +108,8 @@ def practice(request): #example_post -> This allows you to send data with the re
 			girlname = []
 			for i in loop:
 				
-				boyname = random.choice(first)
-				girlname = random.choice(second)
+				boyname.append(random.choice(first))
+				girlname.append(random.choice(second))
 				name = (firrst + " " + seccond 
 				)
 			
