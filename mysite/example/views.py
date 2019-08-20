@@ -90,7 +90,7 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob= ("Your name is: " + name)
+	jsob = []
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
@@ -109,7 +109,7 @@ def practice(request): #example_post -> This allows you to send data with the re
 			boynames = random.choice(girlname1)
 			girlnames = random.choice(boyname1)
 			name = (boynames + " " + girlnames)
-
+			jsob.append(name)
 
 			return JsonResponse("Your name is: " + name)
 		except Exception as e:
