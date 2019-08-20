@@ -98,13 +98,17 @@ def practice(request): #example_post -> This allows you to send data with the re
 			received = json.loads(data)
 			jsob.update(received) #changes from this line are from Lecture 2 recording
 
-			boyname = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
-			girlname = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
+			#######################################
+			#EVERYTHING ABOVE THIS LINE IS REQURED#
+			#######################################
+
+			boyname1 = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
+			girlname1 = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
 
 			
 				
-			boyname.random.choice(boyname)
-			girlname.random.choice(girlname)
+			boyname = random.choice(boyname1)
+			girlname = random.choice(girlname1)
 			name = (boyname + " " + girlname)
 
 			return JsonResponse({"name":boyname})
