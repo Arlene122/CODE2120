@@ -110,7 +110,7 @@ def practice(request): #example_post -> This allows you to send data with the re
 				name = (firrst + " " + seccond 
 				)
 			
-			return ({"Child's":name})
+			return JsonResponse({"Child's Name is...":name})
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
@@ -118,5 +118,5 @@ def practice(request): #example_post -> This allows you to send data with the re
 			errorType = str(exc_type)
 			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
 	else:
-		return HttpResponse(jsob) #this is returning HTML
+		return HttpResponse("ONLY POST REQUESTS") #this is returning HTML
 
