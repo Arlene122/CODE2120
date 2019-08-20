@@ -104,8 +104,8 @@ def practice(request): #example_post -> This allows you to send data with the re
 			first = ("Super", "Retarded", "Great", "Sexy", "Vegan", "Brave", "Shy", "Cool", "Poor", "Rich", "Fast")
 			second = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
 
-			name = []
-			for i in jsob["demo"]
+			
+			for i in jsob["demo"]:
 				
 				firrst = random.choice(first)
 				seccond = random.choice(second)
