@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 import json
 from .models import *
 import os, sys
+import random
 
 # Create your views here.
 
@@ -101,9 +102,7 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
 
-		import random
 		NAMES = ['Adam', 'Betty', 'Charlie', 'Debbie', 'Elaine', 'Frank' 'George','Harry', 'Igor', 'Jack', 'Kevin', 'Larry', 'Moe', 'Nancy', 'Ophelia', 'Phil', 'Quentin']
-		VERBS = ['had', 'found', 'got', 'made', 'knew', 'took', 'saw', 'wanted', 'used', 'found', 'tried']
 		FRUIT = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape']
 
 		sCounter = 0
@@ -113,7 +112,7 @@ def practice(request): #example_post -> This allows you to send data with the re
 		while sCounter <= fCounter:
 		    sCounter += 1 
 
-			return JsonResponse ("{0} {1} the {2}").format(random.choice(NAMES),random.choice(VERBS),random.choice(FRUIT))
+			return JsonResponse ().format(random.choice(NAMES))
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
