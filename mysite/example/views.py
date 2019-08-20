@@ -109,7 +109,7 @@ def practice(request): #example_post -> This allows you to send data with the re
 			boynames = random.choice(girlname1)
 			girlnames = random.choice(boyname1)
 			name = (boynames + " " + girlnames)
-			
+			jsob = (name)
 
 			return JsonResponse("Your name is: " + name)
 		except Exception as e:
