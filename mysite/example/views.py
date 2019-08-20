@@ -49,7 +49,7 @@ def example_post(request): #example_post -> This allows you to send data with th
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def fib(request): #example_post -> This allows you to send data with the request
-	jsob = {"StartNumber": 0, "Length": 10}
+	jsob = {"StartNumber": 4, "Length": 10}
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
