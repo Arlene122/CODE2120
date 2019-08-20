@@ -101,19 +101,15 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#######################################
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
-			first = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
-			second = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
-			length= int(jsob["Length"])
-			loop = range(length)
+			boyname = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
+			girlname = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
 
-			boyname = []
-			girlname = []
-			for i in loop:
+			
 				
-				boyname.append(random.choice(first))
-				girlname.append(random.choice(second))
-				name = (firrst + " " + seccond 
-				)
+			boyname.random.choice(first)
+			girlname.random.choice(second)
+			name = (firrst + " " + seccond 
+			)
 			
 			return JsonResponse({"fib":boyname})
 		except Exception as e:
