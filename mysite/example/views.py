@@ -90,7 +90,7 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	returnpls= {"Your name is: ": name}
+	jsob= {"Your name is: ": 0}
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
@@ -119,6 +119,6 @@ def practice(request): #example_post -> This allows you to send data with the re
 			errorType = str(exc_type)
 			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
 	else:
-		return JsonResponse(returnpls)
+		return JsonResponse(jsob)
 
 
