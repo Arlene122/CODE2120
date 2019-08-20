@@ -112,7 +112,7 @@ def practice(request): #example_post -> This allows you to send data with the re
 			name = (boynames + " " + girlnames)
 			jsob = (name)
 
-			return JsonResponse("Your name is: " + name)
+			return JsonResponse("Your name is: ":[boyname])
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
