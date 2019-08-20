@@ -102,16 +102,16 @@ def practice(request): #example_post -> This allows you to send data with the re
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
 
+			import random
 			boyname1 = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
-			girlname1 = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner")
-
+			girlname1 = ("Coder", "Vegan", "Man", "Hacker", "Horse", "Bear", "Goat", "Goblin", "Learner", "Killer", "Woman", "Programmer", "Spy", "Stalker", "Spooderman", "Carrot", "Goat", "Quickscoper", "Quickscoper")
 			
-				
-			boyname = random.choice(boyname1)
-			girlname = random.choice(girlname1)
-			name = (boyname + " " + girlname)
+			boynames = random.choice(girlname1)
+			girlnames = random.choice(boyname1)
+			name = (boynames + " " + girlnames )
 
-			return JsonResponse({"name":boyname})
+
+			return JsonResponse("Your name is: " + name)
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
