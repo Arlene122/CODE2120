@@ -90,29 +90,29 @@ def fib(request): #example_post -> This allows you to send data with the request
 
 @csrf_exempt #this is a decorator -> These are put before a function
 def practice(request): #example_post -> This allows you to send data with the request
-	jsob = {"boyNames" : "girlNames"}
+	jsob = {"choice": "girlName/boyName"}
 	log = [] #helps to print errors if there are problems
 	if request.method == "POST":
 		try:
+			
 			data = request.POST["data"]
 			print(data)
 			received = json.loads(data)
 			jsob = json.loads(data) #changes from this line are from Lecture 2 recording
+			import random
+			if jsob["choice"] == "girlName":
+				nameList = ("Emma","Olivia","Ava","Isabella","Sophia","Charlotte","Mia","Amelia","Harper","Evelyn","Abigail","Emily","Elizabeth")
+			if jsob["choice"] == "boyName":
+				nameList = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
+			names = random.choice(nameList)
+			return JsonResponse({"Name":names})
 
 			#######################################
 			#EVERYTHING ABOVE THIS LINE IS REQURED#
 			#######################################
 
-			import random
-			boynameList = ("Liam","Noah","William","James","Logan","Benjamin","Mason","Elijah","Oliver","Jacob","Lucas","Michael")
-			girlNameList = ("Emma","Olivia","Ava","Isabella","Sophia","Charlotte","Mia","Amelia","Harper","Evelyn","Abigail","Emily","Elizabeth")
-			
-			boyNames = jsob["boyNames"]
-			boyNames = random.choice(boynameList)
-			girlnames = random.choice(girlnameList)
 
 
-			return JsonResponse("Boy's Name: " + boynames + " , " + "Girl's Name: " + girlnames)
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
@@ -120,6 +120,6 @@ def practice(request): #example_post -> This allows you to send data with the re
 			errorType = str(exc_type)
 			return JsonResponse({"isError": True, "error":str(e), "errorType":errorType, "function":fname, "line":exc_tb.tb_lineno, "log":log})
 	else:
-		return JsonResponse(jsob)
+		return JsonResponse (jsob)
 
 
